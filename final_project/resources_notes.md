@@ -2,7 +2,6 @@
 
 ## Topic Description
 Gamification has invaded many aspects of our online lives.  What seems like playful and harmless features can also be used to hijack our attention. Corporations use gamification to increase the time we spend on their services and thus add revenues. Gamification is a standard feature of many educational apps and practices.  We will explore the thorny issues that arise with gamification in our presnetation. 
-
 ## Resources
 - How Corporations and Governments Use Games to Control Us: Vice News, https://www.vice.com/en/article/4axqjp/cyber-how-corporations-and-governments-use-games-to-control-us
 - BF Skinner and Behaviorism: a psychologist who invented the idea of behavioralism.  Believed that people will do things either because they're being rewarded or punished for something.  ex: the Skinner Box - you're able to provide reward or punishment to a rat/subject in a controlled setting.  Behaviorism has been discredited because there are a lot of reasons we do things, not just reward or punishment.  We also do things based on social constructs, satisfaction, self-determination, autonomy/agency, connectedness to help others, mastery to practice somethings to see progress.  These are more about something deeper than reward/punishment. However, education and behaviorism have been intricately linked throughout history.  https://en.wikipedia.org/wiki/B._F._Skinner  
