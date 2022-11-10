@@ -1,4 +1,4 @@
-Team members:  Jing Xue, Patti Elfers, Elizabeth Rechtin
+Team members:  Jing Xue, Patti Elfers, Jenna Lin, Elizabeth Rechtin
 
 ## Our thoughts from Room 5 as copied from Slack: 
 Room 5
