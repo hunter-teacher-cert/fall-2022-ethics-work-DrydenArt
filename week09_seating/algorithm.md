@@ -7,3 +7,7 @@ Room 5
 + Families and people with accessibility needs should be seated before general economy with priority to keeping them with at least one other party member, keeping children with an adult, and keeping children and people with disabilities out of the emergency exit rows.
 
 + Parties should be kept with at least one other party member unless they specifically opt out of that prioritization.
+
+## Our updated plan:
+
++ The policy is inherently unethical.  We have chosen to address the ethical issues by eliminating the economy plus grouping.  
