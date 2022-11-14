@@ -156,7 +156,7 @@ def purchase_economy_plus(plane,economy_sold,name):
 
 
     # 70% chance that the customer tries to purchase a window seat
-    # it this by making a list of all the rows, randomizing it
+    # it does this by making a list of all the rows, randomizing it
     # and then trying each row to try to grab a seat
 
     
@@ -220,8 +220,7 @@ def purchase_economy_block(plane,economy_sold,number,name):
     economy_sold dictionary and return the new dictionary
 
     """
-    seats_avail = get_total_seats(plane)
-    seats_avail = seats_avail - get_number_economy_sold(economy_sold)
+    seats_avail = get_avail_seats(plane, economy_sold)
 
     if seats_avail >= number:
         economy_sold[name]=number
