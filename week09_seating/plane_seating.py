@@ -137,56 +137,56 @@ def get_plane_string(plane):
     return s
 
 
-def purchase_economy_plus(plane,economy_sold,name):
-    """
-    Params: plane - a list of lists representing a plane
-            economy_sold - a dictionary representing the economy sold but not assigned
-            name - the name of the person purchasing the seat
-    """
-    rows = len(plane)
-    cols = len(plane[0])
+# def purchase_economy_plus(plane,economy_sold,name):
+#     """
+#     Params: plane - a list of lists representing a plane
+#             economy_sold - a dictionary representing the economy sold but not assigned
+#             name - the name of the person purchasing the seat
+#     """
+#     rows = len(plane)
+#     cols = len(plane[0])
 
     
-    # total unassigned seats
-    seats = get_avail_seats(plane,economy_sold)
+#     # total unassigned seats
+#     seats = get_avail_seats(plane,economy_sold)
 
-    # exit if we have no more seats
-    if seats < 1:
-        return plane
+#     # exit if we have no more seats
+#     if seats < 1:
+#         return plane
 
 
-    # 70% chance that the customer tries to purchase a window seat
-    # it does this by making a list of all the rows, randomizing it
-    # and then trying each row to try to grab a seat
+#     # 70% chance that the customer tries to purchase a window seat
+#     # it does this by making a list of all the rows, randomizing it
+#     # and then trying each row to try to grab a seat
 
     
-    if random.randrange(100) > 30:
-        # make a list of all the rows using a list comprehension
-        order = [x for x in range(rows)]
+#     if random.randrange(100) > 30:
+#         # make a list of all the rows using a list comprehension
+#         order = [x for x in range(rows)]
 
-        # randomzie it
-        random.shuffle(order)
+#         # randomzie it
+#         random.shuffle(order)
 
-        # go through the randomized list to see if there's an available seat
-        # and if there is, assign it and return the new plane
-        for row in order:
-            if plane[row][0] == "win":
-                plane[row][0] = name
-                return plane
-            elif plane[row][len(plane[0])-1] == "win":
-                plane[row][len(plane[0])-1] = name
-                return  plane
+#         # go through the randomized list to see if there's an available seat
+#         # and if there is, assign it and return the new plane
+#         for row in order:
+#             if plane[row][0] == "win":
+#                 plane[row][0] = name
+#                 return plane
+#             elif plane[row][len(plane[0])-1] == "win":
+#                 plane[row][len(plane[0])-1] = name
+#                 return  plane
 
-    # if no window was available, just keep trying a random seat until we find an
-    # available one, then assign it and return the new plane
-    found_seat = False
-    while not(found_seat):
-        r_row = random.randrange(0,rows)
-        r_col = random.randrange(0,cols)
-        if plane[r_row][r_col] == "win" or plane[r_row][r_col] == "avail":
-            plane[r_row][r_col] = name
-            found_seat = True
-    return plane
+#     # if no window was available, just keep trying a random seat until we find an
+#     # available one, then assign it and return the new plane
+#     found_seat = False
+#     while not(found_seat):
+#         r_row = random.randrange(0,rows)
+#         r_col = random.randrange(0,cols)
+#         if plane[r_row][r_col] == "win" or plane[r_row][r_col] == "avail":
+#             plane[r_row][r_col] = name
+#             found_seat = True
+#     return plane
 
 
 # THIS WILL BE LEFT EMPTY FOR THE FIRST STAGE OF THE PROJECT
@@ -253,14 +253,15 @@ def fill_plane(plane):
 
     max_family_size = 3
     while total_seats > 1:
-        r = random.randrange(100)
-        if r > 30:
-            plane = purchase_economy_plus(plane,economy_sold,"ep-%d"%ep_number)
-            ep_number = ep_number + 1
-            total_seats = get_avail_seats(plane,economy_sold)
-        else:
-            economy_sold = purchase_economy_block(plane,economy_sold,1+random.randrange(max_family_size),"u-%d"%u_number)
-            u_number = u_number + 1
+        # r = random.randrange(100)
+        # if r > 30:
+        #     plane = purchase_economy_plus(plane,economy_sold,"ep-%d"%ep_number)
+        #     ep_number = ep_number + 1
+        #     total_seats = get_avail_seats(plane,economy_sold)
+        # else:
+        economy_sold = purchase_economy_block(plane,economy_sold,1+random.randrange(max_family_size),"u-%d"%u_number)
+        u_number = u_number + 1
+        total_seats = get_avail_seats(plane,economy_sold)
 
         
     # once the plane reaches a certian seating capacity, assign
