@@ -1,4 +1,4 @@
-
+#Collaborators: Elizabeth, Jing, Patti, Jenna
 """This program simulates the sales of tickets for a specific flight.
 
 A plane is represented by a list. Each element of the list is a row in the plane (with plane[0] being the front) and reach row is also a list.
