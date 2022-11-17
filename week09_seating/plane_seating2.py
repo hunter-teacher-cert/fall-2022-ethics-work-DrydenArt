@@ -1,7 +1,8 @@
-
 """This program simulates the sales of tickets for a specific flight.
 
-A plane is represented by a list. Each element of the list is a row in the plane (with plane[0] being the front) and reach row is also a list.
+A plane is represented by a list. Each element of the list is a row in
+the plane (with plane[0] being the front) and reach row is also a
+list.
 
 Seats can be purchased as economy_plus or regular economy.
 
@@ -10,10 +11,10 @@ Economy passengers are assigned randomly when the flight is closer to full
 
 create_plane(rows,cols):
   Creates and returns a plane of size rowsxcols
-  Planes have windows but no aisles (to keep the simulation simple)
+  Plans have windows but no aisles (to keep the simulation simple)
 
 get_number_economy_sold(economy_sold):
-    Input: a dictionary containing the number of regular economy seats sold. 
+    Input: a dicitonary containing the number of regular economy seats sold. 
            the keys are the names for the tickets and the values are how many
 
     ex: {'Robinson':3, 'Lee':2 } // The Robinson family reserved 3
@@ -28,8 +29,9 @@ get_avail_seats(plane,economy_sold):
 
     Returns: the number of unsold seats
 
-    Notes: this loops over the plane and counts the number of seats that are "avail" or "win" and removes the number of
-economy_sold seats
+    Notes: this loops over the plane and counts the number of seats
+           that are "avail" or "win" and removes the number of
+           economy_sold seats
 
 get_total_seats(plane):
     Params: plane : a list of lists representing a plane
@@ -69,7 +71,6 @@ main():
 """
 import random
 
-
 def create_plane(rows,cols):
     """
 
@@ -87,7 +88,7 @@ def create_plane(rows,cols):
 
 def get_number_economy_sold(economy_sold):
     """
-    Input: a dictionary containing the number of regular economy seats sold. 
+    Input: a dicitonary containing the number of regular economy seats sold. 
            the keys are the names for the tickets and the values are how many
 
     ex:   {'Robinson':3, 'Lee':2 } // The Robinson family reserved 3 seats, the Lee family 2
@@ -137,57 +138,55 @@ def get_plane_string(plane):
         s = s + "\n"
     return s
 
-
-# def purchase_economy_plus(plane,economy_sold,name):
-#     """
-#     Params: plane - a list of lists representing a plane
-#             economy_sold - a dictionary representing the economy sold but not assigned
-#             name - the name of the person purchasing the seat
-#     """
-#     rows = len(plane)
-#     cols = len(plane[0])
-
-    
-#     # total unassigned seats
-#     seats = get_avail_seats(plane,economy_sold)
-
-#     # exit if we have no more seats
-#     if seats < 1:
-#         return plane
-
-
-#     # 70% chance that the customer tries to purchase a window seat
-#     # it does this by making a list of all the rows, randomizing it
-#     # and then trying each row to try to grab a seat
+def purchase_economy_plus(plane,economy_sold,name):
+    """
+    Params: plane - a list of lists representing a plane
+            economy_sold - a dictionary representing the economy sold but not assigned
+            name - the name of the person purchasing the seat
+    """
+    rows = len(plane)
+    cols = len(plane[0])
 
     
-#     if random.randrange(100) > 30:
-#         # make a list of all the rows using a list comprehension
-#         order = [x for x in range(rows)]
+    # total unassigned seats
+    seats = get_avail_seats(plane,economy_sold)
 
-#         # randomzie it
-#         random.shuffle(order)
+    # exit if we have no more seats
+    if seats < 1:
+        return plane
 
-#         # go through the randomized list to see if there's an available seat
-#         # and if there is, assign it and return the new plane
-#         for row in order:
-#             if plane[row][0] == "win":
-#                 plane[row][0] = name
-#                 return plane
-#             elif plane[row][len(plane[0])-1] == "win":
-#                 plane[row][len(plane[0])-1] = name
-#                 return  plane
 
-#     # if no window was available, just keep trying a random seat until we find an
-#     # available one, then assign it and return the new plane
-#     found_seat = False
-#     while not(found_seat):
-#         r_row = random.randrange(0,rows)
-#         r_col = random.randrange(0,cols)
-#         if plane[r_row][r_col] == "win" or plane[r_row][r_col] == "avail":
-#             plane[r_row][r_col] = name
-#             found_seat = True
-#     return plane
+    # 70% chance that the customer tries to purchase a window seat
+    # it this by making a list of all the rows, randomizing it
+    # and then trying each row to try to grab a seat
+    
+    if random.randrange(100) > 30:
+        # make a list of all the rows using a list comprehension
+        order = [x for x in range(rows)]
+
+        # randomzie it
+        random.shuffle(order)
+
+        # go through the randomized list to see if there's an available seat
+        # and if there is, assign it and return the new plane
+        for row in order:
+            if plane[row][0] == "win":
+                plane[row][0] = name
+                return plane
+            elif plane[row][len(plane[0])-1] == "win":
+                plane[row][len(plane[0])-1] = name
+                return  plane
+
+    # if no window was available, just keep trying a random seat until we find an
+    # available one, then assign it and return the new plane
+    found_seat = False
+    while not(found_seat):
+        r_row = random.randrange(0,rows)
+        r_col = random.randrange(0,cols)
+        if plane[r_row][r_col] == "win" or plane[r_row][r_col] == "avail":
+            plane[r_row][r_col] = name
+            found_seat = True
+    return plane
 
 
 # THIS WILL BE LEFT EMPTY FOR THE FIRST STAGE OF THE PROJECT
@@ -227,6 +226,64 @@ def purchase_economy_block(plane,economy_sold,number,name):
         economy_sold[name]=number
     return economy_sold
 
+    
+
+def check_needs(traveler_dictionary):
+    """
+    This function is used to determine whether a traveler needs to be seated with their companion.
+    
+    Params: a dictionary of travelers in a group 
+            the keys are the names for the travelers in the group and the values are true or false indicating whether they need to be sitted together. 
+
+    Returns: true or false indicating whether they need to be sitted together.
+
+    """
+    special_needs = False
+    for name in traveler_dictionary:
+        if traveler_dictionary[name] == True:
+            special_needs = True
+            break
+ 
+    return special_needs
+
+def simulate_family_size():
+    # 40% chance that the customer is traveling alone
+    
+    if random.randrange(100) > 40:
+        family_size = random.randrange(1, 4)
+    else:
+        family_size = 1
+        
+    return family_size
+
+def simulate_travelers(family_size):
+    # 10% chance that the traveler is 15 years or younger or has accessibility needs.
+    travelers ={}
+    for i in range(family_size):
+        needs = False
+        if random.randrange(100) > 90:
+            needs = True
+            travelers[str(i)] = needs
+        else:
+            travelers[str(i)] = needs
+            
+    return travelers 
+
+def get_adj_seats(plane, family_size):
+    if family_size == 2:
+        for row in range(len(plane)):
+            for col in range(len(plane[row])):
+                if plane[row[col]] in ['win', 'avail']:
+                    if row[col+1] in ['win', 'avail']:
+                        return [[row, col], [row, col+1]]
+    elif family_size == 3:
+        for row in range(len(plane)):
+            for col in range(len(plane[row])):
+                if row[col] in ['win', 'avail']:
+                    if row[col+1] in ['win', 'avail']:
+                        return [[row, col], [row, col+1]]
+                
+            
 
 def fill_plane(plane):
     """
@@ -247,22 +304,20 @@ def fill_plane(plane):
     ep_number=1
     u_number=1
 
-    # MODIFY THIS
-    # you will probably want to change parts of this
-    # for example, when to stop purchases, the probabilities, maybe the size for the random
-    # regular economy size
+    # 70% chance people will purchase ep
 
     max_family_size = 3
     while total_seats > 1:
-        # r = random.randrange(100)
-        # if r > 30:
-        #     plane = purchase_economy_plus(plane,economy_sold,"ep-%d"%ep_number)
-        #     ep_number = ep_number + 1
-        #     total_seats = get_avail_seats(plane,economy_sold)
-        # else:
-        economy_sold = purchase_economy_block(plane,economy_sold,1+random.randrange(max_family_size),"u-%d"%u_number)
-        u_number = u_number + 1
-        total_seats = get_avail_seats(plane,economy_sold)
+        r = random.randrange(100)
+        if r > 30: 
+            plane = purchase_economy_plus(plane,economy_sold,"ep-%d"%ep_number)
+            ep_number = ep_number + 1
+            total_seats = get_avail_seats(plane,economy_sold)
+        else:
+            family_size = simulate_family_size()
+            travelers = simulate_travelers(family_size)           
+            economy_sold = purchase_economy_block(plane,economy_sold,1+random.randrange(max_family_size),"u-%d"%u_number)
+            u_number = u_number + 1
 
         
     # once the plane reaches a certian seating capacity, assign
@@ -270,12 +325,14 @@ def fill_plane(plane):
     # you will have to complete the seat_economy function
     # Alternatively you can rewrite this section
     for name in economy_sold.keys():
+        if economy_sold[name] == 1:
+            plane == seat_economy(plane, economy_sold, name)
         for i in range(economy_sold[name]):
             plane = seat_economy(plane,economy_sold,name)
 
-
     return plane
     
+
     
     
 def main():
