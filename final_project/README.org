@@ -1,6 +1,6 @@
 * Final project
 
-Collaborators: Adam Driggers and Elizabeth Rechtin
+Collaborators: Adam Driggers and Elizabeth Rechtin\br
 Code Sample: https://awdriggs.github.io/gamification/
 Research Paper: 
 Lesson Plan: 
