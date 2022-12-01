@@ -3,4 +3,4 @@
 - Collaborators: Adam Driggers and Elizabeth Rechtin
 - Code Sample: https://awdriggs.github.io/gamification/
 - Research Paper: https://github.com/hunter-teacher-cert/fall-2022-ethics-work-DrydenArt/blob/master/final_project/Gamification_%20EthicalityandEfficacy.pdf
-- Lesson Plan: 
+- Lesson Plan: https://github.com/hunter-teacher-cert/fall-2022-ethics-work-DrydenArt/blob/master/final_project/Gamification_Lesson_Plan(inProgress).pdf
